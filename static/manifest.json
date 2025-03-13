@@ -1,0 +1,33 @@
+{
+	"short_name": "Lantern",
+	"name": "Lantern PMS",
+	"description": "Smart Software for Optical Practices",
+	"categories": ["personalization", "productivity"],
+	"lang": "en-US",
+	"dir": "ltr",
+	"icons": [
+		{
+			"src": "icons/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "icons/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"start_url": "/",
+	"display": "minimal-ui",
+	"background_color": "#FFFFFF",
+	"theme_color": "#FF406E",
+	"screenshots": [
+		{
+			"src": "screenshot-1.png",
+			"sizes": "1280x720",
+			"type": "image/png"
+		}
+	]
+}

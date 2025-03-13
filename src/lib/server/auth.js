@@ -5,12 +5,15 @@ import { db } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
 
 const DAY_IN_MS = 1000 * 60 * 60 * 24;
+const HOUR_IN_MS = 1000 * 60 * 60;
+const MINUTE_IN_MS = 1000 * 60;
 
 export const sessionCookieName = 'auth-session';
 
 export function generateSessionToken() {
 	const bytes = crypto.getRandomValues(new Uint8Array(18));
 	const token = encodeBase64url(bytes);
+
 	return token;
 }
 
@@ -23,8 +26,9 @@ export async function createSession(token, userId) {
 	const session = {
 		id: sessionId,
 		userId,
-		expiresAt: new Date(Date.now() + DAY_IN_MS * 30)
+		expiresAt: new Date(Date.now() + MINUTE_IN_MS * 30)
 	};
+	await db.delete(table.session).where(eq(table.session.userId, userId));
 	await db.insert(table.session).values(session);
 	return session;
 }
@@ -46,16 +50,18 @@ export async function validateSessionToken(token) {
 		return { session: null, user: null };
 	}
 	const { session, user } = result;
+	const currentTime = Date.now();
 
-	const sessionExpired = Date.now() >= session.expiresAt.getTime();
-	if (sessionExpired) {
+	// Check if session has expired
+	if (currentTime >= session.expiresAt.getTime()) {
 		await db.delete(table.session).where(eq(table.session.id, session.id));
 		return { session: null, user: null };
 	}
 
-	const renewSession = Date.now() >= session.expiresAt.getTime() - DAY_IN_MS * 15;
+	// Check if session should be renewed (15 minutes before expiry)
+	const renewSession = Date.now() >= session.expiresAt.getTime() - MINUTE_IN_MS * 15;
 	if (renewSession) {
-		session.expiresAt = new Date(Date.now() + DAY_IN_MS * 30);
+		session.expiresAt = new Date(Date.now() + MINUTE_IN_MS * 30);
 		await db
 			.update(table.session)
 			.set({ expiresAt: session.expiresAt })
