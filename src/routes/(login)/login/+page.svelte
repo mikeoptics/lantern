@@ -139,7 +139,7 @@
 							</div>
 							<div class="flex justify-between">
 								<Button class type="submit">Login</Button>
-								<Button class variant="outline" formaction="?/register">Register</Button>
+								<button formaction="?/register">Register</button>
 							</div>
 						</div>
 					</form>

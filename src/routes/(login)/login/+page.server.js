@@ -15,6 +15,7 @@ export const load = async (event) => {
 
 export const actions = {
 	login: async (event) => {
+		console.log('login')
 		const formData = await event.request.formData();
 		const username = formData.get('username');
 		const password = formData.get('password');
@@ -50,6 +51,7 @@ export const actions = {
 		return redirect(302, '/app');
 	},
 	register: async (event) => {
+		console.log('register')
 		const formData = await event.request.formData();
 		const username = formData.get('username');
 		const password = formData.get('password');
