@@ -86,13 +86,6 @@
 	}
 </script>
 
-<div>
-	By signing below, you confirm that the information provided in this form is accurate to the best
-	of your knowledge, and you give your consent for the provision of eye care services under the NHS
-	General Ophthalmic Services.
-</div>
-
-<Signature />
 <div class="flex gap-4 px-4 py-2">
 	<main class="flex flex-1 flex-col">
 		{#each examination as { fields }}

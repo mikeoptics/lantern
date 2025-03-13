@@ -21,7 +21,7 @@
 	<PxSearch></PxSearch>
 	<!-- List -->
 	<div class="flex gap-1 sm:flex-col">
-		<Button variant="secondary" class="flex-1 justify-start rounded-none" href="{base}/tasks">
+		<Button variant="secondary" class="flex-1 justify-start rounded-none" href="{base}/">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
@@ -35,7 +35,7 @@
 				<circle cx="12" cy="12" r="10" />
 				<polygon points="10 8 16 12 10 16 10 8" />
 			</svg>
-			<span class="hidden w-30 sm:inline-block">Tasks</span>
+			<span class="hidden w-30 sm:inline-block">Dashboard</span>
 		</Button>
 
 		<Button variant="ghost" class="flex-1 justify-start rounded-none" href="{base}/status">
@@ -54,7 +54,7 @@
 			</svg>
 			<span class="hidden sm:inline-block">Status Update</span>
 		</Button>
-		<Button variant="ghost" class="flex-1 justify-start rounded-none">
+		<Button variant="ghost" class="flex-1 justify-start rounded-none" href="/calendar.ics">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
@@ -92,7 +92,11 @@
 			<span class="hidden sm:inline-block">Examination</span>
 		</Button>
 
-		<Button variant="ghost" class="flex-1 justify-start rounded-none" href="{base}/eGOS">
+		<Button
+			variant="ghost"
+			class="flex-1 justify-start rounded-none"
+			href="{base}/patient?id=6ed1f12c-0475-41d8-a19f-cb8d5b2edc85"
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
@@ -109,10 +113,10 @@
 				<path d="M16 6H3" />
 				<path d="M12 18H3" />
 			</svg>
-			<span class="hidden sm:inline-block">eGOS Demo</span>
+			<span class="hidden sm:inline-block">Example Patient Record</span>
 		</Button>
 
-		<Button variant="ghost" class="flex-1 justify-start rounded-none" href="{base}/settings">
+		<Button variant="ghost" class="flex-1 justify-start rounded-none" href="{base}/eGOS">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
@@ -126,7 +130,7 @@
 				<circle cx="8" cy="18" r="4" />
 				<path d="M12 18V2l7 4" />
 			</svg>
-			<span class="hidden sm:inline-block">Settings</span>
+			<span class="hidden sm:inline-block">eGOS Signature Example</span>
 		</Button>
 	</div>
 	<!-- 
