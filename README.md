@@ -22,4 +22,4 @@ Run the Development Server
 Use the following login credentials when prompted:
 
 Username: admin
-Password: admin
+Password: admin1234
